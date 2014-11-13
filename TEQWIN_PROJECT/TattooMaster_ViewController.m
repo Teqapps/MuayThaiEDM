@@ -313,6 +313,7 @@
          PFObject *bannerobject = [bannerarray objectAtIndex:lastClickedRow];
         NSLog(@"%@",bannerobject);
         PFFile *banner = [bannerobject objectForKey:@"banner_image"];
+        
         PFImageView *banner_imageView = (PFImageView*)[cell viewWithTag:200];
         NSNumber * isSuccessNumber3 = (NSNumber *)[object objectForKey: @"banner_allow"];
         if([isSuccessNumber3 boolValue] == YES)
