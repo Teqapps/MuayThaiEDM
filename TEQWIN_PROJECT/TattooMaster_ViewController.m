@@ -77,8 +77,9 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    int r = arc4random_uniform(6);
-   // NSLog(@"%D",r);
+    
+  
+     int r = arc4random_uniform(6)+1;
     RANDOM = [@(r) stringValue];
     [self refreshTable:nil];
     [self queryParseMethod_boxer1];
@@ -679,7 +680,7 @@
     CGPoint correctedPoint =
     [button convertPoint:button.bounds.origin toView:self.tableView];
     NSIndexPath *indexPath =  [self.tableView indexPathForRowAtPoint:correctedPoint];
-     PFObject *object = [self.objects objectAtIndex:indexPath.row];
+     PFObject *object = [bannerarray objectAtIndex:indexPath.row];
     
     //NSLog(@"%@",[object objectForKey:@"banner_link"]);
     
@@ -688,9 +689,11 @@
     
    // NSString*bannername =  [NSString stringWithFormat:@"%@",[object objectForKey:@"banner"]];
   //  NSLog(@"%@",bannername);
-    NSLog(@"11111%@",bannerarray);
-   NSDictionary *dimensions = @{ @"Banner_Link":[object objectForKey:@"banner_link"]};
-[PFAnalytics trackEvent:@"ClickedBanner" dimensions:dimensions];
+    NSLog(@"11111%@%@",[object objectForKey:@"banner_id"],[object objectForKey:@"banner_link"]);
+  
+    
+   NSDictionary *dimensions = @{@"Banner_id":[object objectForKey:@"banner_id"]};
+[PFAnalytics trackEvent:@"Banner_Count" dimensions:dimensions];
 }
 
 @end
