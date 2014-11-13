@@ -68,15 +68,30 @@
     
     self.name.text =self.tattoomasterCell.boxer_name;
    // _news_detail.text=self.tattoomasterCell.boxer_id;
-    self.profile_image.file=self.tattoomasterCell.imageFile;
+   // self.profile_image.file=self.tattoomasterCell.imageFile;
     //self.profile_image.layer.cornerRadius =self.profile_image.frame.size.width / 2;
-    self.profile_image.layer.borderWidth = 0.0f;
-    self.profile_image.layer.borderColor = [UIColor whiteColor].CGColor;
-    self.profile_image.clipsToBounds = YES;
+    //self.profile_image.layer.borderWidth = 0.0f;
+    //self.profile_image.layer.borderColor = [UIColor whiteColor].CGColor;
+    //self.profile_image.clipsToBounds = YES;
 
 }
 - (void)viewWillAppear:(BOOL)animated {
+    PFQuery *query = [PFQuery queryWithClassName:@"Boxers"];
+    query.cachePolicy = kPFCachePolicyCacheThenNetwork;
     
+    //[query whereKey:@"Boxer_1_id" equalTo:self.tattoomasterCell.boxer_id];
+    [query whereKey:@"boxer_id" equalTo:self.tattoomasterCell.boxer_id];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            for (PFObject *object in objects) {
+            _club_image.file = (PFFile *)object[@"Club_image"]; // remote image
+            _profile_image.file   =(PFFile *)object[@"Image"];
+            [_club_image loadInBackground];
+            [_profile_image loadInBackground];
+            }
+        }    }];
+    
+
    // NSLog(@"%@",[boxer_object objectForKey:@"Intro"]);
 }
 - (void)queryParseMethod {
@@ -92,9 +107,7 @@
      test= [boxer_object objectForKey:@"Intro"];
    
     //  _club_image.image = [UIImage imageNamed:@"ICON.PNG"];
-      _club_image.file = (PFFile *)boxer_object[@"Club_image"]; // remote image
       
-      [_club_image loadInBackground];
   }
 }
 
@@ -113,11 +126,7 @@
             [_tableview reloadData];
             NSLog(@"%D",imageFilesArray.count);
         }
-        for (int i = 0; i <imageFilesArray.count; i++) {
-            NSLog(@"on");
-            
-        }
-    }];
+          }];
   
 }
 

@@ -13,6 +13,7 @@
 #import "MTPopupWindow.h"
 @interface TattooMaster_ViewController : PFQueryTableViewController <MTPopupWindowDelegate>
 {
+    NSArray *bannerarray;
     NSArray *imageFilesArray;
     NSMutableArray *imagesArray;
     PFObject *selectobject;
@@ -33,6 +34,7 @@
     UIButton *gallary_button;
     PFImageView *gallary_image;
     NSMutableArray * newrow_array;
+    NSString * RANDOM;
 }
 
 - (IBAction)ADDAD:(id)sender;

@@ -58,8 +58,7 @@
 - (void)viewDidLoad;
 {
     [super viewDidLoad];
-    
-    CGRect newBounds = self.tableView.bounds;
+       CGRect newBounds = self.tableView.bounds;
     if (self.tableView.bounds.origin.y < 44) {
         newBounds.origin.y = newBounds.origin.y + self.searchbar.bounds.size.height;
         self.tableView.bounds = newBounds;
@@ -78,8 +77,11 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-   
+    int r = arc4random_uniform(6);
+   // NSLog(@"%D",r);
+    RANDOM = [@(r) stringValue];
     [self refreshTable:nil];
+    [self queryParseMethod_boxer1];
     // scroll search bar out of sight
     CGRect newBounds = self.tableView.bounds;
     if (self.tableView.bounds.origin.y < 44) {
@@ -99,6 +101,8 @@
 
 
 }
+
+
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
     CGRect newBounds = self.tableView.bounds;
     if (self.tableView.bounds.origin.y < 44) {
@@ -134,7 +138,7 @@
     
     
     NSArray *results  = [searchquery findObjects];
-    NSLog(@"%d",results.count);
+    //NSLog(@"%d",results.count);
     searchquery.cachePolicy=kPFCachePolicyCacheElseNetwork;
     [self.searchResults addObjectsFromArray:results];
     
@@ -179,6 +183,23 @@
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
+- (void)queryParseMethod_boxer1 {
+   // NSLog(@"start query");
+
+    PFQuery *query = [PFQuery queryWithClassName:@"Banner"];
+    query.cachePolicy = kPFCachePolicyCacheThenNetwork;
+    
+    [query whereKey:@"banner_id" containsString:RANDOM];
+   // [query whereKey:@"Boxer_id" equalTo:self.tattoomasterCell.boxer_id];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            bannerarray = [[NSArray alloc] initWithArray:objects];
+            [_table_view reloadData];
+          //  NSLog(@"%D",bannerarray.count);
+        }
+    }];
+    
+}
 
 
 
@@ -190,10 +211,7 @@
     
     query.cachePolicy = kPFCachePolicyCacheThenNetwork;
     [query whereKey:@"allow_display" equalTo:[NSNumber numberWithBool:YES]];
-    
-    
-   
-    
+
     // If no objects are loaded in memory, we look to the cache first to fill the table
     // and then subsequently do a query against the network.
     /*    if ([self.objects count] == 0) {
@@ -203,12 +221,10 @@
     [query orderByAscending:@"createdAt"];
     
     return query;
-    
-    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    
+        if (tableView == self.tableView) {
      PFObject *imageObject = [self.objects objectAtIndex:indexPath.row];
     NSNumber * isSuccessNumber3 = (NSNumber *)[imageObject objectForKey: @"banner_allow"];
     if([isSuccessNumber3 boolValue] == YES)
@@ -221,7 +237,11 @@
        return 145;
         
     }
-
+        }
+    else
+    {
+        return 50;
+    }
     
    
 }
@@ -290,7 +310,9 @@
                 Match_Result_2_imageView.image = [UIImage imageNamed:@"lose.png"];
             }
         }
-        PFFile *banner = [object objectForKey:@"banner"];
+         PFObject *bannerobject = [bannerarray objectAtIndex:lastClickedRow];
+        NSLog(@"%@",bannerobject);
+        PFFile *banner = [bannerobject objectForKey:@"banner_image"];
         PFImageView *banner_imageView = (PFImageView*)[cell viewWithTag:200];
         NSNumber * isSuccessNumber3 = (NSNumber *)[object objectForKey: @"banner_allow"];
         if([isSuccessNumber3 boolValue] == YES)
@@ -403,6 +425,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+     lastClickedRow = indexPath.row;
     if (tableView == self.tableView) {
         
         selectobject = [self.objects  objectAtIndex:indexPath.row];
@@ -622,7 +645,7 @@
         destViewController.tattoomasterCell = tattoomasterCell;
         
         
-        NSLog(@"%@",[object objectForKey:@"Boxer_2_id"]);
+       // NSLog(@"%@",[object objectForKey:@"Boxer_2_id"]);
         [object addUniqueObject:[PFInstallation currentInstallation].objectId forKey:@"view"];
         [object saveInBackground];
         
@@ -630,7 +653,7 @@
         MTPopupWindow *popup = [[MTPopupWindow alloc] init];
         if (![popup superview]) {
             popup.usesSafari = YES;
-            popup.fileName = [UIImage imageNamed:@"xx.png"];
+            popup.fileName = @"info.html";
             [popup show];}
 
            }
@@ -657,13 +680,14 @@
     NSIndexPath *indexPath =  [self.tableView indexPathForRowAtPoint:correctedPoint];
      PFObject *object = [self.objects objectAtIndex:indexPath.row];
     
-    NSLog(@"%@",[object objectForKey:@"banner_link"]);
+    //NSLog(@"%@",[object objectForKey:@"banner_link"]);
     
 [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[object objectForKey:@"banner_link"]]];
     
     
    // NSString*bannername =  [NSString stringWithFormat:@"%@",[object objectForKey:@"banner"]];
   //  NSLog(@"%@",bannername);
+    NSLog(@"11111%@",bannerarray);
    NSDictionary *dimensions = @{ @"Banner_Link":[object objectForKey:@"banner_link"]};
 [PFAnalytics trackEvent:@"ClickedBanner" dimensions:dimensions];
 }
