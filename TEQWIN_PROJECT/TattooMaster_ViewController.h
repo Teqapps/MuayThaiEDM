@@ -49,6 +49,8 @@
 
 - (IBAction)ADDAD:(id)sender;
 - (IBAction)gobannersite:(id)sender;
+- (IBAction)button1:(id)sender;
+- (IBAction)button2:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedcontroller;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;

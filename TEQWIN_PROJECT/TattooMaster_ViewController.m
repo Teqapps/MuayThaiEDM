@@ -717,4 +717,10 @@
 [PFAnalytics trackEvent:@"Banner_Count" dimensions:dimensions];
 }
 
+- (IBAction)button1:(id)sender {
+}
+
+- (IBAction)button2:(id)sender {
+}
+
 @end
