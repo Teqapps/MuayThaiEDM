@@ -35,6 +35,16 @@
     PFImageView *gallary_image;
     NSMutableArray * newrow_array;
     NSString * RANDOM;
+    int r;
+   	NSArray *questions_;
+    
+    NSArray *answers_;
+    int i;
+    NSInteger *randomNumber_;
+    PFObject *bannerobject;
+    int position;
+    NSArray *_quotes;
+    int random;
 }
 
 - (IBAction)ADDAD:(id)sender;

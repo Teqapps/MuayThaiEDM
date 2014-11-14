@@ -58,6 +58,9 @@
 - (void)viewDidLoad;
 {
     [super viewDidLoad];
+    uint32_t rand = arc4random_uniform(4);
+   // NSLog(@"1%u",rand);
+      // NSLog(@"pkpk%@",self.objects);
        CGRect newBounds = self.tableView.bounds;
     if (self.tableView.bounds.origin.y < 44) {
         newBounds.origin.y = newBounds.origin.y + self.searchbar.bounds.size.height;
@@ -78,9 +81,16 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     
-  
-     int r = arc4random_uniform(6)+1;
-    RANDOM = [@(r) stringValue];
+
+    //r = arc4random_uniform(3)+1;
+    //RANDOM = [@(r) stringValue];
+   ;
+
+    
+    
+   
+    
+   
     [self refreshTable:nil];
     [self queryParseMethod_boxer1];
     // scroll search bar out of sight
@@ -190,13 +200,14 @@
     PFQuery *query = [PFQuery queryWithClassName:@"Banner"];
     query.cachePolicy = kPFCachePolicyCacheThenNetwork;
     
-    [query whereKey:@"banner_id" containsString:RANDOM];
+    //[query whereKey:@"banner_id" containsString:RANDOM];
    // [query whereKey:@"Boxer_id" equalTo:self.tattoomasterCell.boxer_id];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             bannerarray = [[NSArray alloc] initWithArray:objects];
+           
             [_table_view reloadData];
-          //  NSLog(@"%D",bannerarray.count);
+         //  NSLog(@"000%d",bannerarray.count);
         }
     }];
     
@@ -220,7 +231,7 @@
      }*/
     
     [query orderByAscending:@"createdAt"];
-    
+   
     return query;
 }
 
@@ -268,7 +279,7 @@
     // Configure the cell
    // selectobject = [boxer_array  objectAtIndex:indexPath.row];
     if (tableView == self.tableView) {
-       
+              // NSLog(@"gg%@",self.objects);
         UIActivityIndicatorView *loadingSpinner_2 = (UIActivityIndicatorView*) [cell viewWithTag:111];
         UIActivityIndicatorView *loadingSpinner = (UIActivityIndicatorView*) [cell viewWithTag:110];
         loadingSpinner.hidden= NO;
@@ -311,10 +322,30 @@
                 Match_Result_2_imageView.image = [UIImage imageNamed:@"lose.png"];
             }
         }
-         PFObject *bannerobject = [bannerarray objectAtIndex:lastClickedRow];
-        NSLog(@"%@",bannerobject);
-        PFFile *banner = [bannerobject objectForKey:@"banner_image"];
+    //    NSLog(@"hee%ld",(long)indexPath.row);
         
+       
+        
+        // get random number based on array count
+       // NSLog(@"%lu",(unsigned long)bannerarray.count);
+        
+      //  NSLog(@"%d",randomColor);
+       // NSLog(@"%@",bannerarray);
+        
+        
+        int randomColor = arc4random_uniform(bannerarray.count);
+         PFObject *bannerobject = [bannerarray objectAtIndex:randomColor];
+      //  NSMutable * test;
+     
+   
+    
+       // lastClickedRow=[bannerarray valueForKey:@"banner_id"];
+        
+       // if ([[object objectForKey:@"Boxer_1_id"]containsObject:[bannerobject objectForKey:@"banner_id"]]) {
+            
+            
+        PFFile *banner = [bannerobject objectForKey:@"banner_image"];
+      
         PFImageView *banner_imageView = (PFImageView*)[cell viewWithTag:200];
         NSNumber * isSuccessNumber3 = (NSNumber *)[object objectForKey: @"banner_allow"];
         if([isSuccessNumber3 boolValue] == YES)
@@ -331,7 +362,7 @@
             banner_imageView.hidden=YES;
             
         }
-
+        
         
         
         
@@ -604,7 +635,7 @@
         //  object[@"view"] =[NSNumber numberWithFloat:(myInteger+ 1)];
         //  [object saveInBackground];
         //  NSLog(@"%@",object[@"view"]);
-        NSLog(@"%@",[object objectForKey:@"Boxer_1_id"]);
+        //NSLog(@"%@",[object objectForKey:@"Boxer_1_id"]);
         
         [object addUniqueObject:[PFInstallation currentInstallation].objectId forKey:@"view"];
         [object saveInBackground];
@@ -679,7 +710,7 @@
     
    // NSString*bannername =  [NSString stringWithFormat:@"%@",[object objectForKey:@"banner"]];
   //  NSLog(@"%@",bannername);
-    NSLog(@"11111%@%@",[object objectForKey:@"banner_id"],[object objectForKey:@"banner_link"]);
+   // NSLog(@"11111%@%@",[object objectForKey:@"banner_id"],[object objectForKey:@"banner_link"]);
   
     
    NSDictionary *dimensions = @{@"Banner_id":[object objectForKey:@"banner_id"]};
