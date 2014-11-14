@@ -10,7 +10,7 @@
 
 #import "TattooMaster_ViewController.h"
 #import "Master_Map_ViewController.h"
-
+#import "POPUPViewController.h"
 
 #import <QuartzCore/QuartzCore.h>
 #import "MBProgressHUD.h"
@@ -79,8 +79,9 @@
 - (void)viewWillAppear:(BOOL)animated {
     
   
-     int r = arc4random_uniform(6)+1;
+     int r = arc4random_uniform(5)+1;
     RANDOM = [@(r) stringValue];
+    //RANDOM =@"1";
     [self refreshTable:nil];
     [self queryParseMethod_boxer1];
     // scroll search bar out of sight
@@ -584,38 +585,14 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     if ([segue.identifier isEqualToString:@"show_boxer_1"]) {
-        UIButton *button = sender;
-        CGPoint correctedPoint =
-        [button convertPoint:button.bounds.origin toView:self.tableView];
-        NSIndexPath *indexPath =  [self.tableView indexPathForRowAtPoint:correctedPoint];
-        detail_news_ViewController *destViewController = segue.destinationViewController;
-        
-        PFObject *object = [self.objects objectAtIndex:indexPath.row];
-        TattooMasterCell *tattoomasterCell = [[TattooMasterCell alloc] init];
-        
-        tattoomasterCell.object_id = [object objectForKey:@"object"];
-        tattoomasterCell.boxer_id = [object objectForKey:@"Boxer_1_id"];
-        tattoomasterCell.imageFile=[object objectForKey:@"Boxer_1_image"];
-        tattoomasterCell.boxer_name = [object objectForKey:@"Boxer_1"];
-        tattoomasterCell.view = [object objectForKey:@"view"];
-        tattoomasterCell.object_id = object.objectId;
-        destViewController.tattoomasterCell = tattoomasterCell;
-        //  NSInteger myInteger = [tattoomasterCell.view integerValue];
-        //  object[@"view"] =[NSNumber numberWithFloat:(myInteger+ 1)];
-        //  [object saveInBackground];
-        //  NSLog(@"%@",object[@"view"]);
-        NSLog(@"%@",[object objectForKey:@"Boxer_1_id"]);
-        
-        [object addUniqueObject:[PFInstallation currentInstallation].objectId forKey:@"view"];
-        [object saveInBackground];
+        if ([RANDOM  isEqual: @"1"]) {
+            POPUPViewController * mapVC = [self.storyboard instantiateViewControllerWithIdentifier:@"POPUPViewController"];
+            [self.navigationController pushViewController:mapVC animated:YES];
+        }
+        else
+            NSLog(@"ON9");
        
-
-        MTPopupWindow *popup = [[MTPopupWindow alloc] init];
-         if (![popup superview]) {
-        popup.usesSafari = YES;
-        popup.fileName = @"info.html";
-            [popup show];}
-    }
+        }
     if ([segue.identifier isEqualToString:@"show_boxer_2"]) {
         UIButton *button = sender;
         CGPoint correctedPoint =
@@ -684,6 +661,9 @@
     
    NSDictionary *dimensions = @{@"Banner_id":[object objectForKey:@"banner_id"]};
 [PFAnalytics trackEvent:@"Banner_Count" dimensions:dimensions];
+}
+
+- (IBAction)popup:(id)sender {
 }
 
 @end
