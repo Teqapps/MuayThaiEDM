@@ -7,7 +7,7 @@
 //
 
 #import "aboutus_map.h"
-#import "SWRevealViewController.h"
+
 @interface aboutus_map ()
 
 @end
@@ -26,7 +26,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     // Create coordinates from location lat/long
-      [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+   
     CLLocationCoordinate2D poiCoodinates;
     poiCoodinates.latitude = 22.308948;
     poiCoodinates.longitude= 114.226022;

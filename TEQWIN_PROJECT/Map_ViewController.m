@@ -6,7 +6,7 @@
 //  Copyright (c) 2014年 Teqwin. All rights reserved.
 //
 
-#import "SWRevealViewController.h"
+
 #import "Map_ViewController.h"
 
 
@@ -31,7 +31,7 @@
     [super viewDidLoad];
     self.title=self.tattoomasterCell.name;
     // Set the gesture
-    [self.view addGestureRecognizer:self.revealViewController.panGestureRecognizer];
+  
 
 }
 

@@ -7,7 +7,7 @@
 //
 
 
-#import <FacebookSDK/FacebookSDK.h>
+
 #import <Parse/Parse.h>
 #import "AppDelegate.h"
 
@@ -33,8 +33,7 @@
     // Override point for customization after application launch.
     [Parse setApplicationId:@"DZyOo57JB5flWHtN8j96BeGwTtGu6wurtLO74BBK"
                   clientKey:@"DMmwJqTGIoxnQ67PdOxCLhukewvJzuDqEZA7PBgD"];
-    [PFFacebookUtils initializeFacebook];
-        [PFTwitterUtils initializeWithConsumerKey:@"your_twitter_consumer_key" consumerSecret:@"your_twitter_consumer_secret"];
+   
 
 
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
@@ -76,20 +75,6 @@ didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
     PFInstallation *currentInstallation = [PFInstallation currentInstallation];
     [currentInstallation setDeviceTokenFromData:deviceToken];
     [currentInstallation saveInBackground];
-}
-// Facebook oauth callback
-- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
-    return [PFFacebookUtils handleOpenURL:url];
-}
-
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url
-  sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-    return [PFFacebookUtils handleOpenURL:url];
-}
-
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-    // Handle an interruption during the authorization flow, such as the user clicking the home button.
-    [FBSession.activeSession handleDidBecomeActive];
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
