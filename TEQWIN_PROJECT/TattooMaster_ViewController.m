@@ -58,6 +58,7 @@
 - (void)viewDidLoad;
 {
     [super viewDidLoad];
+     [self queryParseMethod_boxer1];
     uint32_t rand = arc4random_uniform(4);
    // NSLog(@"1%u",rand);
       // NSLog(@"pkpk%@",self.objects);
@@ -80,19 +81,19 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    
+      lastClickedRow++;
 
     //r = arc4random_uniform(3)+1;
     //RANDOM = [@(r) stringValue];
-   ;
+ //   NSLog(@"%d",lastClickedRow);
 
-    
+  
     
    
     
    
     [self refreshTable:nil];
-    [self queryParseMethod_boxer1];
+   
     // scroll search bar out of sight
     CGRect newBounds = self.tableView.bounds;
     if (self.tableView.bounds.origin.y < 44) {
@@ -205,8 +206,7 @@
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             bannerarray = [[NSArray alloc] initWithArray:objects];
-           
-            [_table_view reloadData];
+                        [_table_view reloadData];
          //  NSLog(@"000%d",bannerarray.count);
         }
     }];
@@ -332,12 +332,16 @@
       //  NSLog(@"%d",randomColor);
        // NSLog(@"%@",bannerarray);
         
-        
+       // NSLog(@"index%ld",(long)indexPath.row);
+        //NSLog(@"last%d",lastClickedRow);
         int randomColor = arc4random_uniform(bannerarray.count);
-         PFObject *bannerobject = [bannerarray objectAtIndex:randomColor];
+        
+        
+        
+         PFObject *bannerobject = [bannerarray objectAtIndex:indexPath.row];
       //  NSMutable * test;
-     
-   
+       
+    //    NSLog(@"%d",indexPath.row) ;
     
        // lastClickedRow=[bannerarray valueForKey:@"banner_id"];
         
