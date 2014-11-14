@@ -10,7 +10,7 @@
 #import <FacebookSDK/FacebookSDK.h>
 #import <Parse/Parse.h>
 #import "AppDelegate.h"
-#import "LoginUIViewController.h"
+
 //#import "GAI.h"
 @implementation AppDelegate
 

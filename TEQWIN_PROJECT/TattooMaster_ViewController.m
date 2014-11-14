@@ -4,17 +4,17 @@
 //  Created by Teqwin on 28/7/14.
 //  Copyright (c) 2014年 Teqwin. All rights reserved.
 //
-#import "LoginUIViewController.h"
+
 #import "ImageExampleCell.h"
-#import "HomeModel.h"
-#import "Tattoo_Master_Info.h"
+
+
 #import "TattooMaster_ViewController.h"
 #import "Master_Map_ViewController.h"
-#import "Tattoo_Detail_ViewController.h"
+
 
 #import <QuartzCore/QuartzCore.h>
 #import "MBProgressHUD.h"
-#import "Gallery.h"
+
 #import <Parse/Parse.h>
 #import "detail_news_ViewController.h"
 @interface TattooMaster_ViewController ()<UISearchDisplayDelegate, UISearchBarDelegate>
@@ -510,17 +510,7 @@
         
         ; }
 }
--(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
-{
-    NSString *button = [alertView buttonTitleAtIndex:buttonIndex];
-    
-    if([button isEqualToString:@"確定"])
-    { LoginUIViewController * loginvc = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginUIViewController"];
-        [self.navigationController pushViewController:loginvc animated:YES];
-        
-        
-    }
-}
+
 - (void) likeImage {
     [selectobject addUniqueObject:[PFUser currentUser].objectId forKey:@"favorites"];
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];

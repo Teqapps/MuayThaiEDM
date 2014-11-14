@@ -9,7 +9,7 @@
 #import "Master_Map_ViewController.h"
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
-#import "Tattoo_Detail_ViewController.h"
+
 @interface Master_Map_ViewController ()
 
 @end

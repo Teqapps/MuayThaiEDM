@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "TattooMasterCell.h"
-#import "Tattoo_Detail_ViewController.h"
+
 #import <Parse/Parse.h>
 #import "MTPopupWindow.h"
 @interface TattooMaster_ViewController : PFQueryTableViewController <MTPopupWindowDelegate>
