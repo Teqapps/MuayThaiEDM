@@ -46,7 +46,6 @@
 		426ED3E919C04A030024E817 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 426ED3E819C04A030024E817 /* MBProgressHUD.m */; };
 		428C1A5B1A159E8800C1DB17 /* Map_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 428C1A581A159E8800C1DB17 /* Map_ViewController.m */; };
 		428C1A5C1A159E8800C1DB17 /* Master_Map_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 428C1A5A1A159E8800C1DB17 /* Master_Map_ViewController.m */; };
-		428C1A661A15BA7000C1DB17 /* POPUPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 428C1A651A15BA7000C1DB17 /* POPUPViewController.m */; };
 		428E7C531A00865000CA2C14 /* ICON@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 428E7C511A00865000CA2C14 /* ICON@2x.png */; };
 		428E7C561A0086A900CA2C14 /* ICON.png in Resources */ = {isa = PBXBuildFile; fileRef = 428E7C551A0086A900CA2C14 /* ICON.png */; };
 		428E7C5D1A008B5900CA2C14 /* loading.png in Resources */ = {isa = PBXBuildFile; fileRef = 428E7C5B1A008B5900CA2C14 /* loading.png */; };
@@ -135,8 +134,6 @@
 		428C1A581A159E8800C1DB17 /* Map_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Map_ViewController.m; sourceTree = "<group>"; };
 		428C1A591A159E8800C1DB17 /* Master_Map_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Master_Map_ViewController.h; sourceTree = "<group>"; };
 		428C1A5A1A159E8800C1DB17 /* Master_Map_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Master_Map_ViewController.m; sourceTree = "<group>"; };
-		428C1A641A15BA7000C1DB17 /* POPUPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = POPUPViewController.h; sourceTree = "<group>"; };
-		428C1A651A15BA7000C1DB17 /* POPUPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = POPUPViewController.m; sourceTree = "<group>"; };
 		428E7C511A00865000CA2C14 /* ICON@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ICON@2x.png"; sourceTree = "<group>"; };
 		428E7C551A0086A900CA2C14 /* ICON.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ICON.png; sourceTree = "<group>"; };
 		428E7C5B1A008B5900CA2C14 /* loading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = loading.png; sourceTree = "<group>"; };
@@ -308,8 +305,6 @@
 			children = (
 				42193FB51985FE08007E3C52 /* TEQWIN_PROJECTTests */,
 				42193FD519860291007E3C52 /* TattooMaster_ViewController.m */,
-				428C1A641A15BA7000C1DB17 /* POPUPViewController.h */,
-				428C1A651A15BA7000C1DB17 /* POPUPViewController.m */,
 				42193FD419860291007E3C52 /* TattooMaster_ViewController.h */,
 				426ED39119B9AF560024E817 /* TattooMasterCell.h */,
 				426ED39219B9AF560024E817 /* TattooMasterCell.m */,
@@ -531,7 +526,6 @@
 				426864551A12123C0043582C /* MTPopupWindow.m in Sources */,
 				42AF211A19EBC6D000FC3BEC /* ImageExampleCell.m in Sources */,
 				428C1A5C1A159E8800C1DB17 /* Master_Map_ViewController.m in Sources */,
-				428C1A661A15BA7000C1DB17 /* POPUPViewController.m in Sources */,
 				426ED39319B9AF560024E817 /* TattooMasterCell.m in Sources */,
 				42193FA11985FE08007E3C52 /* AppDelegate.m in Sources */,
 				42193FD619860291007E3C52 /* TattooMaster_ViewController.m in Sources */,

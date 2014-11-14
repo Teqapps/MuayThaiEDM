@@ -37,14 +37,23 @@
     NSString * RANDOM;
 }
 
-
+- (IBAction)ADDAD:(id)sender;
 - (IBAction)gobannersite:(id)sender;
-- (IBAction)popup:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UISegmentedControl *segmentedcontroller;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *sidebarButton;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchbar;
 - (IBAction)showsearch:(id)sender;
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *btnSearch;
 
+
+- (IBAction)gogallery:(id)sender;
+
+@property (nonatomic, assign) BOOL isFav;
+
+
+
+@property (strong,nonatomic) NSMutableArray *filteredCandyArray;
 
 @property (strong, nonatomic) IBOutlet UITableView *table_view;
 
