@@ -661,13 +661,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TEQWIN_PROJECT/TattooMaster_ViewController.m"
-            timestampString = "437623382.804512"
+            timestampString = "437563093.586921"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "700"
-            endingLineNumber = "700"
-            landmarkName = "-gobannersite:"
-            landmarkType = "5">
+            startingLineNumber = "698"
+            endingLineNumber = "698"
+            landmarkName = "@implementation TattooMaster_ViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

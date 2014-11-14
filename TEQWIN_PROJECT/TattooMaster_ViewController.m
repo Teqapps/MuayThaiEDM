@@ -4,9 +4,9 @@
 //  Created by Teqwin on 28/7/14.
 //  Copyright (c) 2014年 Teqwin. All rights reserved.
 //
-#import "UIImage+animatedGIF.h"
 #import "LoginUIViewController.h"
-
+#import "ImageExampleCell.h"
+#import "HomeModel.h"
 #import "Tattoo_Master_Info.h"
 #import "TattooMaster_ViewController.h"
 #import "Master_Map_ViewController.h"
@@ -63,8 +63,8 @@
         newBounds.origin.y = newBounds.origin.y + self.searchbar.bounds.size.height;
         self.tableView.bounds = newBounds;
     }
-   UIFont *font = [UIFont fontWithName:@"標楷體" size:32];
-       self.title =@"找拳館";
+    
+    self.title =@"找拳館";
     //self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"background.jpg"]];
     self.view.backgroundColor = [UIColor blackColor];
     // searchbar.hidden = !searchbar.hidden;
@@ -80,8 +80,7 @@
     
   
      int r = arc4random_uniform(6)+1;
-   // RANDOM = [@(r) stringValue];
-    RANDOM =@"6";
+    RANDOM = [@(r) stringValue];
     [self refreshTable:nil];
     [self queryParseMethod_boxer1];
     // scroll search bar out of sight
@@ -315,12 +314,11 @@
          PFObject *bannerobject = [bannerarray objectAtIndex:lastClickedRow];
         NSLog(@"%@",bannerobject);
         PFFile *banner = [bannerobject objectForKey:@"banner_image"];
-       
+        
         PFImageView *banner_imageView = (PFImageView*)[cell viewWithTag:200];
         NSNumber * isSuccessNumber3 = (NSNumber *)[object objectForKey: @"banner_allow"];
         if([isSuccessNumber3 boolValue] == YES)
         {
-       
             banner_imageView.image = UIGraphicsGetImageFromCurrentImageContext();
             UIGraphicsEndImageContext();
           //  Boxer_1_imageView.image = [UIImage imageNamed:@"ICON.PNG"];

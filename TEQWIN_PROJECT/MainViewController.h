@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "HomeModel.h"
 #import <Parse/Parse.h>
 #import "TattooMasterCell.h"
 //#import "GAITrackedViewController.h"
@@ -15,7 +15,7 @@
 
 
 @end
-@interface MainViewController : UIViewController
+@interface MainViewController : UIViewController <HomeModelProtocol>
 {
      PFObject *selectobject;
     NSArray *news_array;

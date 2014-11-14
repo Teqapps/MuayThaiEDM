@@ -554,11 +554,11 @@
             </objects>
             <point key="canvasLocation" x="2057" y="722"/>
         </scene>
-        <!--Navigation Controller - 關於我們-->
+        <!--Navigation Controller - aboutus-->
         <scene sceneID="I3i-fc-lBL">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="R9R-s2-Oow" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="關於我們" image="menu.png" id="wp5-UW-wFp"/>
+                    <tabBarItem key="tabBarItem" title="aboutus" image="menu.png" id="wp5-UW-wFp"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bhC-Xw-Rw3">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
