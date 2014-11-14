@@ -7,7 +7,7 @@
 //=
 #import "GalleryCell.h"
 #import "Gallery.h"
-#import "ImageExampleCell.h"
+
 #import "Tattoo_Detail_ViewController.h"
 #import "SWRevealViewController.h"
 #import "TattooMaster_ViewController.h"
