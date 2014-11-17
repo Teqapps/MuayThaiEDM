@@ -27,7 +27,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
     
     [self queryParseMethod_boxer1];
     [self queryParseMethod];
