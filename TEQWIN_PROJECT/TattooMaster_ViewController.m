@@ -7,7 +7,7 @@
 
 #import "ImageExampleCell.h"
 
-#import "PopupViewController.h"
+
 #import "TattooMaster_ViewController.h"
 #import "Master_Map_ViewController.h"
 
@@ -80,7 +80,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    self.navigationItem.hidesBackButton = YES;
+    
 
     //r = arc4random_uniform(3)+1;
     //RANDOM = [@(r) stringValue];
@@ -205,35 +205,24 @@
     NSLog(@"%@%@",RANDOM_2,RANDOM);
     
     PFQuery *query = [PFQuery queryWithClassName:@"Banner"];
-  
-    query.cachePolicy = kPFCachePolicyNetworkElseCache;
-
- //[query whereKey:@"Boxer_id" containsString:@"3"];
+    query.cachePolicy = kPFCachePolicyNetworkOnly;
+    
+//   [query whereKey:@"Boxer_id" containedIn:@[@"1",@"5",@"3",@"4"]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             {
-                NSMutableArray *mutableArray = [NSMutableArray arrayWithArray:objects];
-                NSUInteger count = [mutableArray count];
-                // See http://en.wikipedia.org/wiki/Fisher–Yates_shuffle
-            
-                    if (count > 1) {
-                        for (NSUInteger i = count - 1; i > 0; --i) {
-                            [mutableArray exchangeObjectAtIndex:i withObjectAtIndex:arc4random_uniform((int32_t)(i + 1))];
-                        }
-                    }
-
+              
+              
                 
-                
-                bannerarray = [NSArray arrayWithArray:mutableArray];
-            
-             // NSLog(@"%@",randomArray);
+                    bannerarray = [[NSArray alloc] initWithArray:objects];
                 NSLog(@"%@",bannerarray);
-               // NSLog(@"%@",bannerarray);
                 [_table_view reloadData];
               //  NSLog(@"baba%@",bannerarray);
             }
             
-             //
+            
+            
+       
                      //  NSLog(@"000%d",bannerarray.count);
         }
     }];
@@ -361,11 +350,11 @@
         
        // NSLog(@"index%ld",(long)indexPath.row);
         //NSLog(@"last%d",lastClickedRow);
+        int randomColor = arc4random_uniform(bannerarray.count);
         
         
         
-         PFObject *bannerobject = [bannerarray objectAtIndex:indexPath.row  ];
-
+         PFObject *bannerobject = [bannerarray objectAtIndex:indexPath.row];
       //  NSMutable * test;
      //   NSLog(@"hehe%@",[bannerarray objectAtIndex:indexPath.row]);
     //    NSLog(@"%d",indexPath.row) ;
@@ -373,13 +362,11 @@
        // lastClickedRow=[bannerarray valueForKey:@"banner_id"];
         
        // if ([[object objectForKey:@"Boxer_1_id"]containsObject:[bannerobject objectForKey:@"banner_id"]]) {
-
-
+            
             
         PFFile *banner = [bannerobject objectForKey:@"banner_image"];
       
         PFImageView *banner_imageView = (PFImageView*)[cell viewWithTag:200];
-        
         NSNumber * isSuccessNumber3 = (NSNumber *)[object objectForKey: @"banner_allow"];
         if([isSuccessNumber3 boolValue] == YES)
         {
@@ -394,9 +381,9 @@
             
             banner_imageView.hidden=YES;
             
-        
-        
         }
+        
+        
         
         
         //thumbnailImageView.layer.backgroundColor=[[UIColor clearColor] CGColor];
@@ -652,7 +639,7 @@
         CGPoint correctedPoint =
         [button convertPoint:button.bounds.origin toView:self.tableView];
         NSIndexPath *indexPath =  [self.tableView indexPathForRowAtPoint:correctedPoint];
-        PopupViewController *destViewController = segue.destinationViewController;
+        detail_news_ViewController *destViewController = segue.destinationViewController;
         
         PFObject *object = [self.objects objectAtIndex:indexPath.row];
         TattooMasterCell *tattoomasterCell = [[TattooMasterCell alloc] init];
@@ -674,18 +661,18 @@
         [object saveInBackground];
        
 
-       // MTPopupWindow *popup = [[MTPopupWindow alloc] init];
-        // if (![popup superview]) {
-       // popup.usesSafari = YES;
-       // popup.fileName = @"info.html";
-        //    [popup show];}
+        MTPopupWindow *popup = [[MTPopupWindow alloc] init];
+         if (![popup superview]) {
+        popup.usesSafari = YES;
+        popup.fileName = @"info.html";
+            [popup show];}
     }
     if ([segue.identifier isEqualToString:@"show_boxer_2"]) {
         UIButton *button = sender;
         CGPoint correctedPoint =
         [button convertPoint:button.bounds.origin toView:self.tableView];
         NSIndexPath *indexPath =  [self.tableView indexPathForRowAtPoint:correctedPoint];
-        PopupViewController *destViewController = segue.destinationViewController;
+        detail_news_ViewController *destViewController = segue.destinationViewController;
         
         PFObject *object = [self.objects objectAtIndex:indexPath.row];
         TattooMasterCell *tattoomasterCell = [[TattooMasterCell alloc] init];
@@ -706,7 +693,11 @@
         [object saveInBackground];
         
         
-    
+        MTPopupWindow *popup = [[MTPopupWindow alloc] init];
+        if (![popup superview]) {
+            popup.usesSafari = YES;
+            popup.fileName = @"info.html";
+            [popup show];}
 
            }
     
