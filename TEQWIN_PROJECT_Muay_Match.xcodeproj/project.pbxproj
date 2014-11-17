@@ -66,6 +66,8 @@
 		42AD1ED819B42C4800277278 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 42AD1ED719B42C4800277278 /* libsqlite3.0.dylib */; };
 		42AD1EDC19B42E1200277278 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42AD1EDB19B42E1200277278 /* Parse.framework */; };
 		42AF211A19EBC6D000FC3BEC /* ImageExampleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 42AF211919EBC6D000FC3BEC /* ImageExampleCell.m */; };
+		42CB3DE81A19F4E000BB10DC /* PopupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42CB3DE71A19F4E000BB10DC /* PopupViewController.m */; };
+		42CB3DEA1A19FA2C00BB10DC /* closebutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 42CB3DE91A19FA2C00BB10DC /* closebutton.png */; };
 		42D3D5DA19F7481800B01A97 /* FACEBOOK.JPG in Resources */ = {isa = PBXBuildFile; fileRef = 42D3D5D919F7481800B01A97 /* FACEBOOK.JPG */; };
 		42DB2C511A0A0951002BAF1B /* detail_news_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42DB2C501A0A0951002BAF1B /* detail_news_ViewController.m */; };
 /* End PBXBuildFile section */
@@ -155,9 +157,12 @@
 		42AD1EDB19B42E1200277278 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		42AF211819EBC6D000FC3BEC /* ImageExampleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageExampleCell.h; sourceTree = "<group>"; };
 		42AF211919EBC6D000FC3BEC /* ImageExampleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageExampleCell.m; sourceTree = "<group>"; };
+		42CB3DE61A19F4E000BB10DC /* PopupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupViewController.h; sourceTree = "<group>"; };
+		42CB3DE71A19F4E000BB10DC /* PopupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopupViewController.m; sourceTree = "<group>"; };
+		42CB3DE91A19FA2C00BB10DC /* closebutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = closebutton.png; sourceTree = "<group>"; };
 		42D3D5D919F7481800B01A97 /* FACEBOOK.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = FACEBOOK.JPG; sourceTree = "<group>"; };
-		42DB2C4F1A0A0951002BAF1B /* detail_news_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = detail_news_ViewController.h; sourceTree = "<group>"; };
-		42DB2C501A0A0951002BAF1B /* detail_news_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = detail_news_ViewController.m; sourceTree = "<group>"; };
+		42DB2C4F1A0A0951002BAF1B /* detail_news_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = detail_news_ViewController.h; path = ../detail_news_ViewController.h; sourceTree = "<group>"; };
+		42DB2C501A0A0951002BAF1B /* detail_news_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = detail_news_ViewController.m; path = ../detail_news_ViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,8 +214,6 @@
 				426864561A12123F0043582C /* HTML */,
 				426864521A1212230043582C /* MTPopupWindow */,
 				426864461A1092920043582C /* vs.png */,
-				42DB2C4F1A0A0951002BAF1B /* detail_news_ViewController.h */,
-				42DB2C501A0A0951002BAF1B /* detail_news_ViewController.m */,
 				426ED3E619C049EE0024E817 /* MBProgressHUB */,
 				426ED3D119C02C740024E817 /* Main.storyboard */,
 				424FAC8A19888CF60062D13D /* SideBar & Main */,
@@ -304,6 +307,8 @@
 			isa = PBXGroup;
 			children = (
 				42193FB51985FE08007E3C52 /* TEQWIN_PROJECTTests */,
+				42DB2C4F1A0A0951002BAF1B /* detail_news_ViewController.h */,
+				42DB2C501A0A0951002BAF1B /* detail_news_ViewController.m */,
 				42193FD519860291007E3C52 /* TattooMaster_ViewController.m */,
 				42193FD419860291007E3C52 /* TattooMaster_ViewController.h */,
 				426ED39119B9AF560024E817 /* TattooMasterCell.h */,
@@ -320,6 +325,8 @@
 				428C1A581A159E8800C1DB17 /* Map_ViewController.m */,
 				428C1A591A159E8800C1DB17 /* Master_Map_ViewController.h */,
 				428C1A5A1A159E8800C1DB17 /* Master_Map_ViewController.m */,
+				42CB3DE61A19F4E000BB10DC /* PopupViewController.h */,
+				42CB3DE71A19F4E000BB10DC /* PopupViewController.m */,
 			);
 			name = "Tattoo Master";
 			sourceTree = "<group>";
@@ -383,6 +390,7 @@
 		42A95FDE1A032F1F002C0508 /* photo_lastest */ = {
 			isa = PBXGroup;
 			children = (
+				42CB3DE91A19FA2C00BB10DC /* closebutton.png */,
 				4268644C1A11E35A0043582C /* lose.png */,
 				4268644D1A11E35A0043582C /* win.png */,
 				42A960251A071AD2002C0508 /* view.png */,
@@ -487,6 +495,7 @@
 				42A95FDA1A0231BD002C0508 /* teqapps_logo_ai_G.jpg in Resources */,
 				4219409E198789DB007E3C52 /* ICON.png in Resources */,
 				4268645A1A1212490043582C /* bundle_books_cover_noprice.jpg in Resources */,
+				42CB3DEA1A19FA2C00BB10DC /* closebutton.png in Resources */,
 				428E7C561A0086A900CA2C14 /* ICON.png in Resources */,
 				4268644F1A11E35A0043582C /* win.png in Resources */,
 				4263005D199083C3007B8C8F /* app-map-icon.png in Resources */,
@@ -525,6 +534,7 @@
 				420E2F7819FE225900667E6C /* aboutus_map.m in Sources */,
 				426864551A12123C0043582C /* MTPopupWindow.m in Sources */,
 				42AF211A19EBC6D000FC3BEC /* ImageExampleCell.m in Sources */,
+				42CB3DE81A19F4E000BB10DC /* PopupViewController.m in Sources */,
 				428C1A5C1A159E8800C1DB17 /* Master_Map_ViewController.m in Sources */,
 				426ED39319B9AF560024E817 /* TattooMasterCell.m in Sources */,
 				42193FA11985FE08007E3C52 /* AppDelegate.m in Sources */,

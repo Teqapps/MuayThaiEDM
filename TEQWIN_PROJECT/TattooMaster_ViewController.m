@@ -7,7 +7,7 @@
 
 #import "ImageExampleCell.h"
 
-
+#import "PopupViewController.h"
 #import "TattooMaster_ViewController.h"
 #import "Master_Map_ViewController.h"
 
@@ -80,7 +80,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-    
+    self.navigationItem.hidesBackButton = YES;
 
     //r = arc4random_uniform(3)+1;
     //RANDOM = [@(r) stringValue];
@@ -205,8 +205,9 @@
     NSLog(@"%@%@",RANDOM_2,RANDOM);
     
     PFQuery *query = [PFQuery queryWithClassName:@"Banner"];
-    query.cachePolicy = kPFCachePolicyNetworkOnly;
-    
+  
+    query.cachePolicy = kPFCachePolicyNetworkElseCache;
+
  //[query whereKey:@"Boxer_id" containsString:@"3"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
@@ -214,14 +215,17 @@
                 NSMutableArray *mutableArray = [NSMutableArray arrayWithArray:objects];
                 NSUInteger count = [mutableArray count];
                 // See http://en.wikipedia.org/wiki/Fisher–Yates_shuffle
-             
-                if (count > 1) {
-                    for (NSUInteger i = count - 1; i > 0; --i) {
-                        [mutableArray exchangeObjectAtIndex:i withObjectAtIndex:arc4random_uniform((int32_t)(i + 1))];
+            
+                    if (count > 1) {
+                        for (NSUInteger i = count - 1; i > 0; --i) {
+                            [mutableArray exchangeObjectAtIndex:i withObjectAtIndex:arc4random_uniform((int32_t)(i + 1))];
+                        }
                     }
-                }
-              
+
+                
+                
                 bannerarray = [NSArray arrayWithArray:mutableArray];
+            
              // NSLog(@"%@",randomArray);
                 NSLog(@"%@",bannerarray);
                // NSLog(@"%@",bannerarray);
@@ -229,9 +233,7 @@
               //  NSLog(@"baba%@",bannerarray);
             }
             
-            
-            
-       
+             //
                      //  NSLog(@"000%d",bannerarray.count);
         }
     }];
@@ -650,7 +652,7 @@
         CGPoint correctedPoint =
         [button convertPoint:button.bounds.origin toView:self.tableView];
         NSIndexPath *indexPath =  [self.tableView indexPathForRowAtPoint:correctedPoint];
-        detail_news_ViewController *destViewController = segue.destinationViewController;
+        PopupViewController *destViewController = segue.destinationViewController;
         
         PFObject *object = [self.objects objectAtIndex:indexPath.row];
         TattooMasterCell *tattoomasterCell = [[TattooMasterCell alloc] init];
@@ -672,18 +674,18 @@
         [object saveInBackground];
        
 
-        MTPopupWindow *popup = [[MTPopupWindow alloc] init];
-         if (![popup superview]) {
-        popup.usesSafari = YES;
-        popup.fileName = @"info.html";
-            [popup show];}
+       // MTPopupWindow *popup = [[MTPopupWindow alloc] init];
+        // if (![popup superview]) {
+       // popup.usesSafari = YES;
+       // popup.fileName = @"info.html";
+        //    [popup show];}
     }
     if ([segue.identifier isEqualToString:@"show_boxer_2"]) {
         UIButton *button = sender;
         CGPoint correctedPoint =
         [button convertPoint:button.bounds.origin toView:self.tableView];
         NSIndexPath *indexPath =  [self.tableView indexPathForRowAtPoint:correctedPoint];
-        detail_news_ViewController *destViewController = segue.destinationViewController;
+        PopupViewController *destViewController = segue.destinationViewController;
         
         PFObject *object = [self.objects objectAtIndex:indexPath.row];
         TattooMasterCell *tattoomasterCell = [[TattooMasterCell alloc] init];
@@ -704,11 +706,7 @@
         [object saveInBackground];
         
         
-        MTPopupWindow *popup = [[MTPopupWindow alloc] init];
-        if (![popup superview]) {
-            popup.usesSafari = YES;
-            popup.fileName = @"info.html";
-            [popup show];}
+    
 
            }
     
