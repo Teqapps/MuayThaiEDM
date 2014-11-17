@@ -58,11 +58,10 @@
 - (void)viewDidLoad;
 {
     [super viewDidLoad];
+    
+    
      [self queryParseMethod_boxer1];
-    uint32_t rand = arc4random_uniform(4);
-   // NSLog(@"1%u",rand);
-      // NSLog(@"pkpk%@",self.objects);
-       CGRect newBounds = self.tableView.bounds;
+         CGRect newBounds = self.tableView.bounds;
     if (self.tableView.bounds.origin.y < 44) {
         newBounds.origin.y = newBounds.origin.y + self.searchbar.bounds.size.height;
         self.tableView.bounds = newBounds;
@@ -81,7 +80,7 @@
 }
 
 - (void)viewWillAppear:(BOOL)animated {
-      lastClickedRow++;
+    
 
     //r = arc4random_uniform(3)+1;
     //RANDOM = [@(r) stringValue];
@@ -177,7 +176,13 @@
     
     return YES;
 }
-
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+    // Return YES for supported orientations
+    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+    
+    // Use this to allow upside down as well
+    //return (interfaceOrientation == UIInterfaceOrientationPortrait || interfaceOrientation == UIInterfaceOrientationPortraitUpsideDown);
+}
 - (void)refreshTable:(NSNotification *) notification
 {
     // Reload the recipes
@@ -190,24 +195,35 @@
     
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"refreshTable" object:nil];
 }
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
-}
 
 - (void)queryParseMethod_boxer1 {
    // NSLog(@"start query");
-
-    PFQuery *query = [PFQuery queryWithClassName:@"Banner"];
-    query.cachePolicy = kPFCachePolicyCacheThenNetwork;
+    r = arc4random_uniform(3)+1;
+    RANDOM = [[NSNumber numberWithInt:r] stringValue];
+    r_2 = arc4random_uniform(3)+1;
+    RANDOM_2 = [[NSNumber numberWithInt:r] stringValue];
+    NSLog(@"%@%@",RANDOM_2,RANDOM);
     
-    //[query whereKey:@"banner_id" containsString:RANDOM];
-   // [query whereKey:@"Boxer_id" equalTo:self.tattoomasterCell.boxer_id];
+    PFQuery *query = [PFQuery queryWithClassName:@"Banner"];
+    query.cachePolicy = kPFCachePolicyNetworkOnly;
+    
+//   [query whereKey:@"Boxer_id" containedIn:@[@"1",@"5",@"3",@"4"]];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
-            bannerarray = [[NSArray alloc] initWithArray:objects];
-                        [_table_view reloadData];
-         //  NSLog(@"000%d",bannerarray.count);
+            {
+              
+              
+                
+                    bannerarray = [[NSArray alloc] initWithArray:objects];
+                NSLog(@"%@",bannerarray);
+                [_table_view reloadData];
+              //  NSLog(@"baba%@",bannerarray);
+            }
+            
+            
+            
+       
+                     //  NSLog(@"000%d",bannerarray.count);
         }
     }];
     
@@ -340,9 +356,9 @@
         
          PFObject *bannerobject = [bannerarray objectAtIndex:indexPath.row];
       //  NSMutable * test;
-       
+     //   NSLog(@"hehe%@",[bannerarray objectAtIndex:indexPath.row]);
     //    NSLog(@"%d",indexPath.row) ;
-    
+        
        // lastClickedRow=[bannerarray valueForKey:@"banner_id"];
         
        // if ([[object objectForKey:@"Boxer_1_id"]containsObject:[bannerobject objectForKey:@"banner_id"]]) {

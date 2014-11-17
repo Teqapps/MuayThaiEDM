@@ -294,14 +294,7 @@ return 1;
             case 3:
             {
                 
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"撥號"
-                                                                message:@"確定要撥號嗎？"
-                                                               delegate:self
-                                                      cancelButtonTitle:@"否"
-                                                      otherButtonTitles:@"是",nil];
-                //然后这里设定关联，此处把indexPath关联到alert上
-                
-                [alert show];
+             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tel:23893939"]];
                 
                 
                 

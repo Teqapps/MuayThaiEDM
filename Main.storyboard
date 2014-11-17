@@ -162,8 +162,8 @@
             <objects>
                 <viewController storyboardIdentifier="Gallery" autoresizesArchivedViewToFullSize="NO" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="wiJ-JE-w9h" customClass="Gallery" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Q7R-rt-8A8"/>
-                        <viewControllerLayoutGuide type="bottom" id="ga0-k1-0MB"/>
+                        <viewControllerLayoutGuide type="top" id="88t-vI-nqA"/>
+                        <viewControllerLayoutGuide type="bottom" id="zYY-mR-Fsd"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="X9O-9Y-fev">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -270,8 +270,8 @@
             <objects>
                 <viewController storyboardIdentifier="detail_news_ViewController" autoresizesArchivedViewToFullSize="NO" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Rws-fG-B7G" customClass="detail_news_ViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="UnW-3i-aS0"/>
-                        <viewControllerLayoutGuide type="bottom" id="Sr9-rS-TNh"/>
+                        <viewControllerLayoutGuide type="top" id="bHe-nQ-nIT"/>
+                        <viewControllerLayoutGuide type="bottom" id="Gtf-q7-MpU"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="aFo-uH-SQj">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
@@ -299,7 +299,7 @@
                                 <color key="textColor" red="0.62781567260000004" green="0.6177262926" blue="0.6252933276" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="102" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="3Jk-dm-Qha">
+                            <tableView opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="102" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="3Jk-dm-Qha">
                                 <rect key="frame" x="0.0" y="117" width="320" height="338"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -369,10 +369,6 @@
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="3Jk-dm-Qha" firstAttribute="top" secondItem="UnW-3i-aS0" secondAttribute="bottom" constant="117" id="IY2-Zu-dlu"/>
-                            <constraint firstItem="Sr9-rS-TNh" firstAttribute="top" secondItem="3Jk-dm-Qha" secondAttribute="bottom" id="gux-cI-oOy"/>
-                        </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="uGU-ua-5Lc"/>
@@ -432,14 +428,14 @@
             <objects>
                 <viewController autoresizesArchivedViewToFullSize="NO" automaticallyAdjustsScrollViewInsets="NO" id="Svd-un-d5X" customClass="aboutusViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="7B7-2O-Qb5"/>
-                        <viewControllerLayoutGuide type="bottom" id="cUb-R3-XXb"/>
+                        <viewControllerLayoutGuide type="top" id="qVY-DE-jXd"/>
+                        <viewControllerLayoutGuide type="bottom" id="hRJ-Wm-CXe"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="rAA-X2-mFh">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="8K5-U6-iDG">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="8K5-U6-iDG">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -476,10 +472,6 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="cUb-R3-XXb" firstAttribute="top" secondItem="8K5-U6-iDG" secondAttribute="bottom" id="rNd-92-gcX"/>
-                            <constraint firstItem="8K5-U6-iDG" firstAttribute="top" secondItem="7B7-2O-Qb5" secondAttribute="bottom" id="sDw-OY-N0a"/>
-                        </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" title="Title" id="tPn-kx-h7E"/>
@@ -499,8 +491,8 @@
             <objects>
                 <viewController id="F0e-89-TdL" customClass="aboutus_map_detail" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="4n1-WF-hRC"/>
-                        <viewControllerLayoutGuide type="bottom" id="8mS-ye-lKV"/>
+                        <viewControllerLayoutGuide type="top" id="h7N-yd-DvS"/>
+                        <viewControllerLayoutGuide type="bottom" id="bBv-bX-ReL"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="YeU-tt-zhH">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -518,8 +510,8 @@
             <objects>
                 <viewController storyboardIdentifier="aboutus_map" useStoryboardIdentifierAsRestorationIdentifier="YES" id="OSz-OZ-FY3" customClass="aboutus_map" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="SIh-OM-MYg"/>
-                        <viewControllerLayoutGuide type="bottom" id="wKD-Qp-Yv8"/>
+                        <viewControllerLayoutGuide type="top" id="3ug-JR-Egu"/>
+                        <viewControllerLayoutGuide type="bottom" id="df6-TT-vKl"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="QxQ-6Q-Bfh">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>

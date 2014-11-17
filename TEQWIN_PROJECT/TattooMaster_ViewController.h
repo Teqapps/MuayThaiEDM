@@ -36,8 +36,10 @@
     NSMutableArray * newrow_array;
     NSString * RANDOM;
     int r;
+    NSString * RANDOM_2;
+    int r_2;
    	NSArray *questions_;
-    
+    PFObject * banobject;
     NSArray *answers_;
     int i;
     NSInteger *randomNumber_;
@@ -45,6 +47,8 @@
     int position;
     NSArray *_quotes;
     int random;
+    NSMutableArray *bannaymuarray;
+    
 }
 
 - (IBAction)ADDAD:(id)sender;
