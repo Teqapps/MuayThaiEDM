@@ -207,15 +207,24 @@
     PFQuery *query = [PFQuery queryWithClassName:@"Banner"];
     query.cachePolicy = kPFCachePolicyNetworkOnly;
     
-//   [query whereKey:@"Boxer_id" containedIn:@[@"1",@"5",@"3",@"4"]];
+ //[query whereKey:@"Boxer_id" containsString:@"3"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
             {
+                NSMutableArray *mutableArray = [NSMutableArray arrayWithArray:objects];
+                NSUInteger count = [mutableArray count];
+                // See http://en.wikipedia.org/wiki/Fisher–Yates_shuffle
+             
+                if (count > 1) {
+                    for (NSUInteger i = count - 1; i > 0; --i) {
+                        [mutableArray exchangeObjectAtIndex:i withObjectAtIndex:arc4random_uniform((int32_t)(i + 1))];
+                    }
+                }
               
-              
-                
-                    bannerarray = [[NSArray alloc] initWithArray:objects];
+                bannerarray = [NSArray arrayWithArray:mutableArray];
+             // NSLog(@"%@",randomArray);
                 NSLog(@"%@",bannerarray);
+               // NSLog(@"%@",bannerarray);
                 [_table_view reloadData];
               //  NSLog(@"baba%@",bannerarray);
             }
@@ -350,11 +359,11 @@
         
        // NSLog(@"index%ld",(long)indexPath.row);
         //NSLog(@"last%d",lastClickedRow);
-        int randomColor = arc4random_uniform(bannerarray.count);
         
         
         
-         PFObject *bannerobject = [bannerarray objectAtIndex:indexPath.row];
+         PFObject *bannerobject = [bannerarray objectAtIndex:indexPath.row  ];
+
       //  NSMutable * test;
      //   NSLog(@"hehe%@",[bannerarray objectAtIndex:indexPath.row]);
     //    NSLog(@"%d",indexPath.row) ;
@@ -362,11 +371,13 @@
        // lastClickedRow=[bannerarray valueForKey:@"banner_id"];
         
        // if ([[object objectForKey:@"Boxer_1_id"]containsObject:[bannerobject objectForKey:@"banner_id"]]) {
-            
+
+
             
         PFFile *banner = [bannerobject objectForKey:@"banner_image"];
       
         PFImageView *banner_imageView = (PFImageView*)[cell viewWithTag:200];
+        
         NSNumber * isSuccessNumber3 = (NSNumber *)[object objectForKey: @"banner_allow"];
         if([isSuccessNumber3 boolValue] == YES)
         {
@@ -381,9 +392,9 @@
             
             banner_imageView.hidden=YES;
             
+        
+        
         }
-        
-        
         
         
         //thumbnailImageView.layer.backgroundColor=[[UIColor clearColor] CGColor];
