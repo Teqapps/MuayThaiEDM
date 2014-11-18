@@ -673,7 +673,7 @@
         [object addUniqueObject:[PFInstallation currentInstallation].objectId forKey:@"view"];
         [object saveInBackground];
        
-
+        
        // MTPopupWindow *popup = [[MTPopupWindow alloc] init];
         // if (![popup superview]) {
        // popup.usesSafari = YES;

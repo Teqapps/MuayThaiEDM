@@ -169,7 +169,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bundle_books_cover_noprice.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="kLp-IN-gZv">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kLp-IN-gZv" customClass="PFImageView">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -193,12 +193,15 @@
                     <navigationItem key="navigationItem" id="3RO-6c-fFN"/>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="ad_image" destination="kLp-IN-gZv" id="6TO-9v-Wu7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FMf-HB-l9R" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1905" y="-66"/>
         </scene>
-        <!--Detail news View Controller - Title-->
+        <!--Detail news View Controller-->
         <scene sceneID="9Pn-k8-Pbs">
             <objects>
                 <viewController storyboardIdentifier="detail_news_ViewController" autoresizesArchivedViewToFullSize="NO" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Rws-fG-B7G" customClass="detail_news_ViewController" sceneMemberID="viewController">
@@ -232,7 +235,7 @@
                                 <color key="textColor" red="0.62781567260000004" green="0.6177262926" blue="0.6252933276" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <tableView opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="102" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="3Jk-dm-Qha">
+                            <tableView opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="102" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="3Jk-dm-Qha">
                                 <rect key="frame" x="0.0" y="141" width="320" height="363"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -302,14 +305,10 @@
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        <constraints>
-                            <constraint firstItem="3Jk-dm-Qha" firstAttribute="top" secondItem="bHe-nQ-nIT" secondAttribute="bottom" constant="97" id="ChA-oZ-dZP"/>
-                            <constraint firstItem="Gtf-q7-MpU" firstAttribute="top" secondItem="3Jk-dm-Qha" secondAttribute="bottom" id="LQp-Md-mzR"/>
-                        </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
-                    <navigationItem key="navigationItem" title="Title" id="uO6-DF-NTh">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="UJu-6z-bpF">
+                    <navigationItem key="navigationItem" id="uO6-DF-NTh">
+                        <barButtonItem key="leftBarButtonItem" title="  返回" id="UJu-6z-bpF">
                             <connections>
                                 <segue destination="488-73-Amk" kind="push" id="Ttm-jL-61J"/>
                             </connections>
@@ -511,7 +510,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bundle_books_cover_noprice.jpg" width="250" height="239"/>
         <image name="closebutton.png" width="80" height="80"/>
         <image name="menu.png" width="28" height="20"/>
         <image name="navigationicon.png" width="512" height="512"/>

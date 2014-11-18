@@ -5,7 +5,7 @@
 //  Created by Teqwin on 17/11/14.
 //  Copyright (c) 2014年 Teqwin. All rights reserved.
 //
-
+#import "MBProgressHUD.h"
 #import "PopupViewController.h"
 #import "detail_news_ViewController.h"
 @interface PopupViewController ()
@@ -22,7 +22,30 @@
     }
     return self;
 }
+- (void)viewWillAppear:(BOOL)animated {
+    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDModeIndeterminate;
+    hud.labelText = @"Loading";
+    [hud show:YES];
 
+    PFQuery *query = [PFQuery queryWithClassName:@"Full_ad"];
+    query.cachePolicy = kPFCachePolicyCacheThenNetwork;
+    
+    //[query whereKey:@"Boxer_1_id" equalTo:self.tattoomasterCell.boxer_id];
+    [query whereKey:@"ad_id" containsString:@"1"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            for (PFObject *object in objects) {
+                _ad_image.file = (PFFile *)object[@"ad_image"]; // remote image
+               
+                [_ad_image loadInBackground];
+        [hud hide:YES];
+            }
+        }    }];
+    
+    
+    // NSLog(@"%@",[boxer_object objectForKey:@"Intro"]);
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];
